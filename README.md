@@ -20,7 +20,7 @@
 
 :fire::fire: This is an official repository of our work on edge enhanced dual stream transformer for small polyp segementation. :fire::fire:
 
-> ✉If you have any questions about our work, feel free to contact me via e-mail (📫youyaog@andrew.cmu.edu/youyaogao@gmail.com).
+> ✉If you have any questions about our work, feel free to contact me via e-mail (📫youyaog@andrew.cmu.edu / youyaogao@gmail.com).
 
 <a id="highlights"></a>
 
@@ -90,7 +90,7 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 #### Architecture
 
 <p align="center">
-    <img src="https://github.com/haoshao-nku/medical_seg/blob/master/fig/pipline_polyper.png"/> <br />
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/eedt.png"/> <br />
     <em> 
     Figure 1: Overall architecture of the proposed Edge-Enhanced Dual-Stream Transformer (EEDT).
     </em>
@@ -98,21 +98,21 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 
 
 <p align="center">
-    <img src="https://github.com/haoshao-nku/medical_seg/blob/master/fig/refine_polyper.png"/> <br />
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/feature_map.png"/> <br />
     <em> 
     Figure 2: Architecture of the feature stream.
     </em>
 </p>
 
 <p align="center">
-    <img src="https://github.com/haoshao-nku/medical_seg/blob/master/fig/pipline_polyper.png"/> <br />
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/edge_feat_map.png"/> <br />
     <em> 
     Figure 3: Architecture of the edge-enhanced stream.
     </em>
 </p>
 
 <p align="center">
-    <img src="https://github.com/haoshao-nku/medical_seg/blob/master/fig/pipline_polyper.png"/> <br />
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/QKV.png"/> <br />
     <em> 
     Figure 4: Architecture of the attention fusion module.
     </em>
