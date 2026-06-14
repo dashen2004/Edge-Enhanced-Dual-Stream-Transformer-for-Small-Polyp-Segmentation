@@ -1,9 +1,9 @@
-# <p align=center>`Medical Image Segmentation`</p>
+# <p align=center>`Edge-Enhanced Dual Stream Transformer for Small Polyp Segementation`</p>
 
 
-:fire::fire: This is an official repository of our work on medical image segmentation.:fire::fire:
+:fire::fire: This is an official repository of our work on edge enhanced dual stream transformer for small polyp segementation:fire::fire:
 
-> If you have any questions about our work, feel free to contact me via e-mail (shaoh@mail.nankai.edu.cn).
+> If you have any questions about our work, feel free to contact me via e-mail (youyaog@andrew.cmu.edu/youyaogao@gmail.com).
 
 
 ## 🌤️ Highlights
