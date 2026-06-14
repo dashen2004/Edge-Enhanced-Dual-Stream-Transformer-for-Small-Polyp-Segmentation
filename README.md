@@ -150,3 +150,29 @@ You may want to cite:
 ### License
 
 Code in this repo is for non-commercial use only.
+
+## Thanks to all contributors 👍
+
+<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/YouyaoGao.md">
+  <img src="https://github.com/dashen2004.png" width="80" alt="Youyao Gao">
+</a>
+
+<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/ZiqianXiong.md">
+  <img src="https://github.com/qianqqqqqXZQ.png" width="80" alt="Ziqian Xiong">
+</a>
+
+<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/YiweiLi.md">
+  <img src="https://github.com/daidaibunny.png" width="80" alt="Yiwei Li">
+</a>
+
+<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/HengyuanShi.md">
+  <img src="https://github.com/name.png" width="80" alt="Hengyuan Shi">
+</a>
+
+<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/Name.md">
+  <img src="https://github.com/name.png" width="80" alt="Name">
+</a>
+
+<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/Fiseha.md">
+  <img src="https://github.com/Falmi.png" width="80" alt="Fiseha Berhanu Tesema">
+</a>
