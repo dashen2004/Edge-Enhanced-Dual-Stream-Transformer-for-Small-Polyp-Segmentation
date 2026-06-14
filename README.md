@@ -136,7 +136,7 @@ Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) providing 
 ## 🖊 Reference
 You may want to cite:
 ```
-@inproceedings{shao2024polyper,
+@inproceedings{gao2026eedt,
   title={Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation},
   author={},
   booktitle={},
