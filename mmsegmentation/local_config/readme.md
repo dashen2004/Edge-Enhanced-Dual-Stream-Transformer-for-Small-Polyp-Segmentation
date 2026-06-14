@@ -88,6 +88,12 @@ python tools/train.py local_config/EEDT/main/eedt_polypseg_224*224_80k.py
 
 > During training, verification is performed every 8,000 iterations, and the checkpoint file is saved at the same time. The batch size and validation set evaluation indicators can be changed in **/medical_seg/mmsegmentation/local_config/EEDT/main/eedt_polypseg_224*224_80k**.
 
+For the EEDT_c1 model, run the following code in terminal:
+
+```
+python tools/train.py local_config/EEDT_c1/main/eedt_c1_polypseg_224*224_80k.py
+```
+
 ### Testing
 
 The log files and checkpoint files of the training process are saved in /medical_seg/mmsegmentation/work_dirs/eedt_polypseg_224*224_80k/. The command to test the model is as follows:
@@ -96,9 +102,15 @@ The log files and checkpoint files of the training process are saved in /medical
 python tools/test.py local_config/EEDT/main/eedt_polypseg_224*224_80k.py work_dirs/eedt_polypseg_224*224_80k/iter_80000.pth
 ```
 
->  You can replace iter_80000.pth to evaluate the performance of different checkpoints. 
+> You can replace iter_80000.pth to evaluate the performance of different checkpoints. 
 
 > The evaluation indicators supported by mmsegmentation can be found in **/medical_seg/mmsegmentation/mmseg/evaluation/metrics**.
+
+For the EEDT_c1 model, run the following code in terminal:
+
+```
+python tools/test.py local_config/EEDT_c1/main/eedt_c1_polypseg_224*224_80k.py work_dirs/eedt_c1_polypseg_224*224_80k/iter_80000.pth
+```
 
 ### Ablation Study
 
