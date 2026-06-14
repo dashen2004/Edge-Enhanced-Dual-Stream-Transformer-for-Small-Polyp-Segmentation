@@ -85,6 +85,8 @@ If your hardware resources are relatively rich, ignore this advice.
 
 <a id="ourwork"></a>
 
+> For training, testing and other details can be found at **/medical_seg/mmsegmentation/local_config/readme.md**.
+
 ## 📖 Our Work
 
 ### [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]() 2026
@@ -127,13 +129,6 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
     </em>
 </p>
 
-
-#### Experiments
-
-> For training, testing and other details can be found at **/medical_seg/mmsegmentation/local_config/readme.md**.
-
-
-
 ## ❤ Acknowlegement
 
 Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) providing a friendly codebase for segmentation tasks. And our code is built based on it.
@@ -142,25 +137,15 @@ Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) providing 
 You may want to cite:
 ```
 @inproceedings{shao2024polyper,
-  title={Polyper: Boundary Sensitive Polyp Segmentation},
-  author={Shao, Hao and Zhang, Yang and Hou, Qibin},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  volume={38},
-  number={5},
-  pages={4731--4739},
-  year={2024}
-}
-
-@article{shao2023mcanet,
-  title={MCANet: Medical Image Segmentation with Multi-Scale Cross-Axis Attention},
-  author={Shao, Hao and Zeng, Quansheng and Hou, Qibin and Yang, Jufeng},
-  journal={arXiv preprint arXiv:2312.08866},
-  year={2023}
+  title={Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation},
+  author={},
+  booktitle={},
+  volume={},
+  number={},
+  pages={},
+  year={2026}
 }
 ```
-
-
-
 
 ### License
 
