@@ -1,4 +1,4 @@
-# <p align=center>`Edge-Enhanced Dual Stream Transformer for Small Polyp Segementation`</p>
+# <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation`</p>
 
 <p align="center">
 📃 <b>Contents:</b>
@@ -13,19 +13,18 @@
   <a href="https://github.com/dashen2004">Youyao Gao</a>, 
   <a href="https://github.com/qianqqqqqXZQ">Ziqian Xiong</a>, 
   <a href="https://github.com/daidaibunny">Yiwei Li</a>, 
-  <a href="">Hengyuan Shi</a>, 
-  <a href="">Name</a>, 
+  <a href="contributors/HengyuanShi.md">Hengyuan Shi</a>, 
   <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
 </p>
 
-:fire::fire: This is an official repository of our work on edge enhanced dual stream transformer for small polyp segementation. :fire::fire:
+:fire::fire: This is an official repository of our work on edge-enhanced dual-stream transformer for small polyp segmentation. :fire::fire:
 
 > ✉If you have any questions about our work, feel free to contact me via e-mail (📫youyaog@andrew.cmu.edu / youyaogao@gmail.com).
 
 <a id="highlights"></a>
 
 ## 🌤️ Highlights
-- (2026.06.14) The Initial vsersion of [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available.
+- (2026.06.14) The initial version of [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available.
 
 ## ✅ Get Start
 > Our experiments are based on ubuntu, and windows is not recommended.
@@ -58,9 +57,9 @@ mim download mmsegmentation --config pspnet_r50-d8_4xb2-40k_cityscapes-512x1024 
 python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cuda:0 --out-file result.jpg
 python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cpu --out-file result.jpg
 ```
-After the preceding two steps are successfully run, if the result.png file is generated under the mmsegmentation folder, the environment is successfully created.The result.png as shown in the following.
+After the preceding two steps are successfully run, if the result.png file is generated under the mmsegmentation folder, the environment is successfully created. The result.png is shown in the following.
 
-<p align="center"><img width="800" alt="image" src="https://github.com/haoshao-nku/medical_seg/blob/master/mmsegmentation/demo/result.jpg"></p> 
+<p align="center"><img width="800" alt="image" src="mmsegmentation/demo/result.jpg"></p> 
 
 
 To check whether the GPU has properly installed PyTorch and the corresponding CUDA version, and whether it is available for computation, you can use the following command for a quick test:
@@ -70,8 +69,7 @@ python -c "import torch; print(torch.__version__); print(torch.version.cuda); pr
 
 **1. Dataset**
 > The dataset used in the experiment can be obtained in the following methods:
-- [Polypseg](https://github.com/DengPingFan/PraNet): including Kvasir, - CVC-ClinicDB, CVC-ColonDB, EndoScene and ETIS dataset.
--
+- [Polypseg](https://github.com/DengPingFan/PraNet): including Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene and ETIS datasets.
 
 **2. Experiments**
 
@@ -92,7 +90,7 @@ If your hardware resources are relatively rich, ignore this advice.
 ### [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]() 2026
 
 > **Authors:**
-> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), [Name](), &[Fiseha Berhanu Tesema]().
+> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), and [Fiseha Berhanu Tesema]().
 
 #### **Abstract**
 
@@ -101,7 +99,7 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 #### Architecture
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/eedt.png"/> <br />
+    <img width="800" src="fig/eedt.png"/> <br />
     <em> 
     Figure 1: Overall architecture of the proposed Edge-Enhanced Dual-Stream Transformer (EEDT).
     </em>
@@ -109,29 +107,29 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/feature_map.png"/> <br />
+    <img width="800" src="fig/feature_map.png"/> <br />
     <em> 
     Figure 2: Architecture of the feature stream.
     </em>
 </p>
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/edge_feat_map.png"/> <br />
+    <img width="800" src="fig/edge_feat_map.png"/> <br />
     <em> 
     Figure 3: Architecture of the edge-enhanced stream.
     </em>
 </p>
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/QKV.png"/> <br />
+    <img width="800" src="fig/QKV.png"/> <br />
     <em> 
     Figure 4: Architecture of the attention fusion module.
     </em>
 </p>
 
-## ❤ Acknowlegement
+## ❤ Acknowledgement
 
-Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) providing a friendly codebase for segmentation tasks. And our code is built based on it.
+Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) for providing a friendly codebase for segmentation tasks. Our code is built based on it.
 
 ## 🖊 Reference
 You may want to cite:
@@ -165,14 +163,10 @@ Code in this repo is for non-commercial use only.
   <img src="https://github.com/daidaibunny.png" width="80" alt="Yiwei Li">
 </a>
 
-<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/HengyuanShi.md">
-  <img src="https://github.com/name.png" width="80" alt="Hengyuan Shi">
+<a href="contributors/HengyuanShi.md">
+  <img src="contributors/HengyuanShi.jpg" width="80" alt="Hengyuan Shi">
 </a>
 
-<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/Name.md">
-  <img src="https://github.com/name.png" width="80" alt="Name">
-</a>
-
-<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/Fiseha.md">
+<a href="https://github.com/Falmi">
   <img src="https://github.com/Falmi.png" width="80" alt="Fiseha Berhanu Tesema">
 </a>
