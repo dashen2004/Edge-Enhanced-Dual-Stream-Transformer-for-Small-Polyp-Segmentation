@@ -12,10 +12,10 @@
   <b>Authors:</b> 
   <a href="https://github.com/dashen2004">Youyao Gao</a>, 
   <a href="https://github.com/qianqqqqqXZQ">Ziqian Xiong</a>, 
-  <a href="">Yiwei Li</a>, 
+  <a href="https://github.com/daidaibunny">Yiwei Li</a>, 
   <a href="">Hengyuan Shi</a>, 
   <a href="">Name</a>, 
-  <a href="">Fiseha Berhanu Tesema</a>
+  <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
 </p>
 
 :fire::fire: This is an official repository of our work on edge enhanced dual stream transformer for small polyp segementation. :fire::fire:
