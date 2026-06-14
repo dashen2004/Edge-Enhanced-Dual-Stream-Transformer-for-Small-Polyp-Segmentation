@@ -1,32 +1,47 @@
 # <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation`</p>
 
 > **Authors:**
-> [Hao Shao](https://scholar.google.com/citations?hl=en&user=vB4DPYgAAAAJ), [Yang Zhang](), &[Qibin Hou](https://scholar.google.com/citations?user=fF8OFV8AAAAJ&hl=en&oi=ao).
-
+> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), [Name](), &[Fiseha Berhanu Tesema]().
 
 
 This document mainly contains [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://arxiv.org/abs/2312.08735)'s training, testing and other experimental methods, experimental results and visualization results, etc.
 
 ## **Abstract**
 
-We present a new boundary sensitive framework for polyp segmentation, called Polyper. Our method is motivated by a clinical approach that seasoned medical practitioners often leverage the inherent features of interior polyp regions to tackle blurred boundaries. Inspired by this, we propose explicitly leveraging polyp regions to bolster the model’s boundary discrimination capability while minimizing computation. Our approach first extracts boundary and polyp regions from the initial segmentation map through morphological operators. Then, we design the boundary sensitive attention that concentrates on augmenting the features near the boundary regions using the interior polyp regions’s characteristics to generate good segmentation results. Our proposed method can be seamlessly integrated with classical encoder networks, like ResNet-50, MiT-B1, and Swin Transformer. To evaluate the effectiveness of Polyper, we conduct experiments on five publicly available challenging datasets, and receive state-of-the-art performance on all of them.
+This paper presents an edge-enhanced dual-stream Transformer framework for small polyp segmentation, named EEDT. The proposed method is motivated by a key challenge in small polyp segmentation: in colonoscopy images, small polyps often suffer from low contrast, blurred boundaries, irregular shapes, and complex background interference. Therefore, relying only on conventional semantic features may not be sufficient to produce accurate boundary predictions. To address this problem, EEDT explicitly introduces edge-enhanced information to improve the model's discrimination capability around polyp boundaries while maintaining relatively low computational cost. Specifically, a Swin Transformer is first adopted as the encoder to extract multi-level semantic features. Then, an edge-enhancement stream is designed to capture boundary-related responses from feature maps through channel averaging, Laplacian convolution, and feature projection. After that, a cross-attention fusion module is introduced to promote effective interaction between semantic features and edge-enhanced features. In this way, the model can preserve the main regional semantic information while enhancing its ability to model fine-grained boundary structures. To evaluate the effectiveness of the proposed method, experiments are conducted on five public polyp segmentation datasets, including Kvasir-SEG, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS-LaribPolypDB. The experimental results show that EEDT achieves competitive segmentation performance across multiple datasets. Further ablation studies also demonstrate that both the edge-enhancement stream and the cross-attention module improve model performance, and their combination achieves the best results.
+
 
 ## Architecture
 
 <p align="center">
-    <img src="https://github.com/haoshao-nku/medical_seg/blob/master/fig/pipline_polyper.png"/> <br />
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/eedt.png"/> <br />
     <em> 
-    Figure 1: Overall architecture of Polyper. We use the Swin-T from Swin Transformer as the encoder. The decoder is divided into two main stages. The first potential boundary extraction (PBE) stage aims to capture multi-scale features from the encoder, which are then aggregated to generate the initial segmentation results. Next, we extract the predicted polyps' potential boundary and interior regions using morphology operators. In the second boundary sensitive refinement (BSR) stage, we model the relationships between the potential boundary and interior regions to generate better segmentation results.
+    Figure 1: Overall architecture of the proposed Edge-Enhanced Dual-Stream Transformer (EEDT).
     </em>
 </p>
 
 
 <p align="center">
-    <img src="https://github.com/haoshao-nku/medical_seg/blob/master/fig/refine_polyper.png"/> <br />
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/feature_map.png"/> <br />
     <em> 
-    Figure 2: Detailed structure of boundary sensitive attention (BSA) module. This process is separated into two parallel branches, which systematically capitalize on the distinctive attributes of polyps at various growth stages, both in terms of spatial and channel characteristics. `B' and `M' indicate the number of pixels in the boundary and interior polyp regions within an input of size H*W and C channels.
+    Figure 2: Architecture of the feature stream.
     </em>
 </p>
+
+<p align="center">
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/edge_feat_map.png"/> <br />
+    <em> 
+    Figure 3: Architecture of the edge-enhanced stream.
+    </em>
+</p>
+
+<p align="center">
+    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/QKV.png"/> <br />
+    <em> 
+    Figure 4: Architecture of the attention fusion module.
+    </em>
+</p>
+
 
 ## Experiments
 
