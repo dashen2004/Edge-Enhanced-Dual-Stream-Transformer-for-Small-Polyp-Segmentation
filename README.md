@@ -25,19 +25,17 @@
 <a id="highlights"></a>
 
 ## 🌤️ Highlights
-- (2025.02.18) The Jittor vsersion implementation of  [Polyper: Boundary Sensitive Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available at [Jittor Version](https://github.com/haoshao-nku/medical_seg_jittor.git) !!!
-
-<a id="getstart"></a>
+- (2026.06.14) The Initial vsersion of [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available.
 
 ## ✅ Get Start
 > Our experiments are based on ubuntu, and windows is not recommended.
-> 
+
 **0. Install**
 
 ```
-conda create --name medical_seg python=3.8 -y
+conda create --name medical_seg python=3.10 -y
 conda activate medical_seg
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install pytorch torchvision torchaudio pytorch-cuda=12.8 -c pytorch -c nvidia
 pip install -U openmim
 mim install mmengine
 mim install "mmcv>=2.0.0"
@@ -48,24 +46,35 @@ pip install ftfy
 pip install regex
 pip install einops
 ```
+If you encounter the error: AssertionError: **MMCV==2.2.0** is used but incompatible. Please install **mmcv>=2.0.0rc4**, modify the **mmsegmentation/mmseg/__init__.py file**.
 
 The following methods can be used to verify that the experimental environment is successfully set up:
+
 ```
-1. mim download mmsegmentation --config pspnet_r50-d8_4xb2-40k_cityscapes-512x1024 --dest .
-2. python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cuda:0 --out-file result.jpg
+mim download mmsegmentation --config pspnet_r50-d8_4xb2-40k_cityscapes-512x1024 --dest .
+```
+
+```
+python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cuda:0 --out-file result.jpg
+python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cpu --out-file result.jpg
 ```
 After the preceding two steps are successfully run, if the result.png file is generated under the mmsegmentation folder, the environment is successfully created.The result.png as shown in the following.
 
 <p align="center"><img width="800" alt="image" src="https://github.com/haoshao-nku/medical_seg/blob/master/mmsegmentation/demo/result.jpg"></p> 
 
+
+To check whether the GPU has properly installed PyTorch and the corresponding CUDA version, and whether it is available for computation, you can use the following command for a quick test:
+```
+python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
+```
+
 **1. Dataset**
 > The dataset used in the experiment can be obtained in the following methods:
-- For polyp segmentation task: [Polypseg](https://github.com/DengPingFan/PraNet): including Kvasir, - CVC-ClinicDB, CVC-ColonDB, EndoScene and ETIS dataset.
-- For abdominal multi-organ segmentation task: [Synapse](https://github.com/Beckschen/TransUNet).
-- For skin lesion segmentation task: [ISIC-2018](https://challenge.isic-archive.com/data/#2018).
-- For nuclei segmentation task: [DSB2018](https://www.kaggle.com/c/data-science-bowl-2018).
+- [Polypseg](https://github.com/DengPingFan/PraNet): including Kvasir, - CVC-ClinicDB, CVC-ColonDB, EndoScene and ETIS dataset.
+-
 
 **2. Experiments**
+
 We recommend that you place the project folder in a location such as a solid state drive, and put the checkpoint files generated from the experiment on a mechanical hard drive to save space, so you can choose to create a soft connection. Specific practices are as follows:
 
 > ln -s   "mechanical hard disk path"  /medical_seg/mmsegmentation/work_dirs
@@ -121,7 +130,7 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 
 #### Experiments
 
-> For training, testing and other details can be found at **/medical_seg/mmsegmentation/local_config/Polyper-AAAI2024/readme.md**.
+> For training, testing and other details can be found at **/medical_seg/mmsegmentation/local_config/readme.md**.
 
 
 
