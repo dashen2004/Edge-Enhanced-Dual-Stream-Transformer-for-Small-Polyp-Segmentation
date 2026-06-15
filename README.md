@@ -26,6 +26,8 @@
 ## 🌤️ Highlights
 - (2026.06.14) The initial version of [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available.
 
+<a id="getstart"></a>
+
 ## ✅ Get Start
 > Our experiments are based on ubuntu, and windows is not recommended.
 
