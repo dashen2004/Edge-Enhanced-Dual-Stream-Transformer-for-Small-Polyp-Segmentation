@@ -52,10 +52,14 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 > We recommend using absolute paths instead of relative paths when updating paths of dataset.
 - 3.Create a folder in the root directory
 
+Creat Training Dataset
 ```
 sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TrainDataset/image/
 sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TrainDataset/mask/
+```
 
+Creat Testing Dataset
+```
 sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/TestDataset/Kvasir/images
 sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/TestDataset/Kvasir/mask
 
@@ -72,12 +76,34 @@ sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDa
 sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/TestDataset/ETIS-LaribPolypDB/mask
 ```
 
+Creat Small Polyp Testing Dataset
+```
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/Kvasir/images
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/Kvasir/mask
+
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-300/images
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-300/mask
+
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ClinicDB/images
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ClinicDB/mask
+
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ColonDB/images
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ColonDB/mask
+
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/ETIS-LaribPolypDB/images
+sudo mkdir -p /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/ETIS-LaribPolypDB/mask
+```
+
 - 4.Copy the database to the root directory
 
+Copy Training Dataset
 ```
 sudo cp -r /home/ubuntu/Desktop/TrainDataset/TrainDataset/image/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TrainDataset/image/
 sudo cp -r /home/ubuntu/Desktop/TrainDataset/TrainDataset/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TrainDataset/mask/
+```
 
+Copy Testing Dataset
+```
 sudo cp -r /home/ubuntu/Desktop/TestDataset/TestDataset/Kvasir/images/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/TestDataset/Kvasir/images/
 sudo cp -r /home/ubuntu/Desktop/TestDataset/TestDataset/Kvasir/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/TestDataset/Kvasir/mask/
 
@@ -94,6 +120,24 @@ sudo cp -r /home/ubuntu/Desktop/TestDataset/TestDataset/ETIS-LaribPolypDB/images
 sudo cp -r /home/ubuntu/Desktop/TestDataset/TestDataset/ETIS-LaribPolypDB/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/TestDataset/ETIS-LaribPolypDB/mask/
 ```
 
+Copy Small Polyp Testing Dataset
+```
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/Kvasir/images/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/Kvasir/images/
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/Kvasir/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/Kvasir/mask/
+
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/CVC-300/images/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-300/images/
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/CVC-300/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-300/mask/
+
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/CVC-ClinicDB/images/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ClinicDB/images/
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/CVC-ClinicDB/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ClinicDB/mask/
+
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/CVC-ColonDB/images/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ColonDB/images/
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/CVC-ColonDB/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/CVC-ColonDB/mask/
+
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/ETIS-LaribPolypDB/images/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/ETIS-LaribPolypDB/images/
+sudo cp -r /home/ubuntu/Desktop/SmallPolypDataset/ETIS-LaribPolypDB/masks/* /data/dataset/medical_image_segmentation/Polyp_Segmentation/TestDataset/SmallPolypDataset/ETIS-LaribPolypDB/mask/
+```
+
 ### Training
 Please confirm whether you are currently under the mmsegmentation directory. If not, please enter the mmsegmentation directory. Then run the following code in terminal:
 
@@ -101,7 +145,9 @@ Please confirm whether you are currently under the mmsegmentation directory. If 
 python tools/train.py local_config/EEDT/main/eedt_polypseg_224*224_80k.py
 ```
 
-> During training, verification is performed every 8,000 iterations, and the checkpoint file is saved at the same time. The batch size and validation set evaluation indicators can be changed in **/medical_seg/mmsegmentation/local_config/EEDT/main/eedt_polypseg_224*224_80k**.
+> During training, verification is performed every 8,000 iterations, and the checkpoint file is saved at the same time.
+
+> The batch size and validation set evaluation indicators can be changed in **/medical_seg/mmsegmentation/local_config/EEDT/main/eedt_polypseg_224*224_80k**.
 
 For the EEDT_c1 model, run the following code in terminal:
 
@@ -119,7 +165,9 @@ python tools/test.py local_config/EEDT/main/eedt_polypseg_224*224_80k.py work_di
 
 > You can replace iter_80000.pth to evaluate the performance of different checkpoints. 
 
-> The evaluation indicators supported by mmsegmentation can be found in **/medical_seg/mmsegmentation/mmseg/evaluation/metrics**.
+> The evaluation indicators supported by mmsegmentation can be found in **/medical_seg/mmsegmentation/mmseg/evaluation/metrics**.\
+
+> You can chaneg the testing dataset in **/medical_seg/mmsegmentation/local_config/_base_/datasets/polypseg.py**
 
 For the EEDT_c1 model, run the following code in terminal:
 
