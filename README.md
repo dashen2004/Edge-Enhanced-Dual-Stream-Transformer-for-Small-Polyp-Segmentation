@@ -13,7 +13,7 @@
   <a href="https://github.com/dashen2004">Youyao Gao</a>, 
   <a href="https://github.com/qianqqqqqXZQ">Ziqian Xiong</a>, 
   <a href="https://github.com/daidaibunny">Yiwei Li</a>, 
-  <a href="contributors/HengyuanShi.md">Hengyuan Shi</a>, 
+  <a href="https://github.com/MattEEE-11">Hengyuan Shi</a>,  
   <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
 </p>
 
