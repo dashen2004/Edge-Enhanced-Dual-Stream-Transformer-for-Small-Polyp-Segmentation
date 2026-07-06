@@ -148,7 +148,7 @@ If your hardware resources are relatively rich, ignore this advice.
 ### [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]() 2026
 
 > **Authors:**
-> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), and [Fiseha Berhanu Tesema]().
+> [Youyao Gao](https://orcid.org/my-orcid?orcid=0009-0009-0294-1625), [Ziqian Xiong](), [Yiwei Li](https://orcid.org/my-orcid?orcid=0009-0000-3939-5300), [Hengyuan Shi](), and [Fiseha Berhanu Tesema]().
 
 #### **Abstract**
 
