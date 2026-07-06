@@ -1,4 +1,4 @@
-# <p align=center>`Edge-Enhanced Dual Stream Transformer for Small Polyp Segementation`</p>
+# <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation`</p>
 
 <p align="center">
 📃 <b>Contents:</b>
@@ -17,26 +17,26 @@
   <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
 </p>
 
-:fire::fire: This is an official repository of our work on edge enhanced dual stream transformer for small polyp segementation. :fire::fire:
+:fire::fire: This is an official repository of our work on edge-enhanced dual-stream transformer for small polyp segmentation. :fire::fire:
 
 > ✉If you have any questions about our work, feel free to contact me via e-mail (📫youyaog@andrew.cmu.edu / youyaogao@gmail.com).
 
 <a id="highlights"></a>
 
 ## 🌤️ Highlights
-- (2025.02.18) The Jittor vsersion implementation of  [Polyper: Boundary Sensitive Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available at [Jittor Version](https://github.com/haoshao-nku/medical_seg_jittor.git) !!!
+- (2026.06.14) The initial version of [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/28274) is available.
 
 <a id="getstart"></a>
 
 ## ✅ Get Start
 > Our experiments are based on ubuntu, and windows is not recommended.
-> 
+
 **0. Install**
 
 ```
-conda create --name medical_seg python=3.8 -y
+conda create --name medical_seg python=3.10 -y
 conda activate medical_seg
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install pytorch torchvision torchaudio pytorch-cuda=12.8 -c pytorch -c nvidia
 pip install -U openmim
 mim install mmengine
 mim install "mmcv>=2.0.0"
@@ -47,24 +47,88 @@ pip install ftfy
 pip install regex
 pip install einops
 ```
+If you encounter the error: AssertionError: **MMCV==2.2.0** is used but incompatible. Please install **mmcv>=2.0.0rc4**, modify the **mmsegmentation/mmseg/__init__.py file**.
 
 The following methods can be used to verify that the experimental environment is successfully set up:
-```
-1. mim download mmsegmentation --config pspnet_r50-d8_4xb2-40k_cityscapes-512x1024 --dest .
-2. python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cuda:0 --out-file result.jpg
-```
-After the preceding two steps are successfully run, if the result.png file is generated under the mmsegmentation folder, the environment is successfully created.The result.png as shown in the following.
 
-<p align="center"><img width="800" alt="image" src="https://github.com/haoshao-nku/medical_seg/blob/master/mmsegmentation/demo/result.jpg"></p> 
+```
+mim download mmsegmentation --config pspnet_r50-d8_4xb2-40k_cityscapes-512x1024 --dest .
+```
+
+```
+python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cuda:0 --out-file result.jpg
+python demo/image_demo.py demo/demo.png configs/pspnet/pspnet_r50-d8_4xb2-40k_cityscapes-512x1024.py pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth --device cpu --out-file result.jpg
+```
+After the preceding two steps are successfully run, if the result.png file is generated under the mmsegmentation folder, the environment is successfully created. The result.png is shown in the following.
+
+<p align="center"><img width="800" alt="image" src="mmsegmentation/demo/result.jpg"></p> 
+
+
+To check whether the GPU has properly installed PyTorch and the corresponding CUDA version, and whether it is available for computation, you can use the following command for a quick test:
+```
+python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
+```
 
 **1. Dataset**
-> The dataset used in the experiment can be obtained in the following methods:
-- For polyp segmentation task: [Polypseg](https://github.com/DengPingFan/PraNet): including Kvasir, - CVC-ClinicDB, CVC-ColonDB, EndoScene and ETIS dataset.
-- For abdominal multi-organ segmentation task: [Synapse](https://github.com/Beckschen/TransUNet).
-- For skin lesion segmentation task: [ISIC-2018](https://challenge.isic-archive.com/data/#2018).
-- For nuclei segmentation task: [DSB2018](https://www.kaggle.com/c/data-science-bowl-2018).
+The datasets used in this project can be downloaded from the following Google Drive links.
+
+- Download the training dataset from this [Google Drive Link](https://drive.google.com/file/d/1UxXVTlI6PjUldAVTvDN2QLVX31dKaxVh/view?usp=drive_link).  
+  The training dataset contains `image/` and `mask/` folders for model training.
+
+- Download the testing dataset from this [Google Drive Link](https://drive.google.com/file/d/1ISqQgZBLtMY8TA2lcKCexJCAKLbcsEqw/view?usp=drive_link).  
+  It contains five sub-datasets: Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS. Each sub-dataset contains `images/` and `mask/` folders.
+
+- Download the small-polyp testing dataset from this [Google Drive Link](https://drive.google.com/file/d/1vnG5ykOCtF_NMhhSmAUg_dZTYMOcL1bn/view?usp=drive_link).  
+  This dataset is used to evaluate the performance of different methods on small-polyp segmentation. Each sub-dataset also contains `images/` and `mask/` folders.
+
+After downloading and extracting the datasets, the data directory should be organized as follows:
+
+```text
+data/
+├── TrainDataset/
+│   ├── image/
+│   └── mask/
+└── TestDataset/
+    ├── TestDataset/
+    │   ├── Kvasir/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   ├── CVC-ClinicDB/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   ├── CVC-ColonDB/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   ├── EndoScene/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   └── ETIS/
+    │       ├── images/
+    │       └── mask/
+    └── SmallPolypDataset/
+        ├── Kvasir/
+        │   ├── images/
+        │   └── mask/
+        ├── CVC-ClinicDB/
+        │   ├── images/
+        │   └── mask/
+        ├── CVC-ColonDB/
+        │   ├── images/
+        │   └── mask/
+        ├── EndoScene/
+        │   ├── images/
+        │   └── mask/
+        └── ETIS/
+            ├── images/
+            └── mask/
+```
+
+Alternatively, the original training and testing datasets can also be obtained from the following repository:
+
+- [PraNet / PolypSeg](https://github.com/DengPingFan/PraNet): including Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS datasets.
 
 **2. Experiments**
+
 We recommend that you place the project folder in a location such as a solid state drive, and put the checkpoint files generated from the experiment on a mechanical hard drive to save space, so you can choose to create a soft connection. Specific practices are as follows:
 
 > ln -s   "mechanical hard disk path"  /medical_seg/mmsegmentation/work_dirs
@@ -75,12 +139,14 @@ If your hardware resources are relatively rich, ignore this advice.
 
 <a id="ourwork"></a>
 
+> For training, testing and other details can be found at **/medical_seg/mmsegmentation/local_config/readme.md**.
+
 ## 📖 Our Work
 
 ### [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]() 2026
 
 > **Authors:**
-> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), [Name](), &[Fiseha Berhanu Tesema]().
+> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), and [Fiseha Berhanu Tesema]().
 
 #### **Abstract**
 
@@ -89,7 +155,7 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 #### Architecture
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/eedt.png"/> <br />
+    <img width="800" src="fig/eedt.png"/> <br />
     <em> 
     Figure 1: Overall architecture of the proposed Edge-Enhanced Dual-Stream Transformer (EEDT).
     </em>
@@ -97,60 +163,43 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/feature_map.png"/> <br />
+    <img width="800" src="fig/feature_map.png"/> <br />
     <em> 
     Figure 2: Architecture of the feature stream.
     </em>
 </p>
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/edge_feat_map.png"/> <br />
+    <img width="800" src="fig/edge_feat_map.png"/> <br />
     <em> 
     Figure 3: Architecture of the edge-enhanced stream.
     </em>
 </p>
 
 <p align="center">
-    <img src="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/fig/QKV.png"/> <br />
+    <img width="800" src="fig/QKV.png"/> <br />
     <em> 
     Figure 4: Architecture of the attention fusion module.
     </em>
 </p>
 
+## ❤ Acknowledgement
 
-#### Experiments
-
-> For training, testing and other details can be found at **/medical_seg/mmsegmentation/local_config/Polyper-AAAI2024/readme.md**.
-
-
-
-## ❤ Acknowlegement
-
-Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) providing a friendly codebase for segmentation tasks. And our code is built based on it.
+Thanks [mmsegmentation](https://github.com/open-mmlab/mmsegmentation) for providing a friendly codebase for segmentation tasks. Our code is built based on it.
 
 ## 🖊 Reference
 You may want to cite:
 ```
-@inproceedings{shao2024polyper,
-  title={Polyper: Boundary Sensitive Polyp Segmentation},
-  author={Shao, Hao and Zhang, Yang and Hou, Qibin},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  volume={38},
-  number={5},
-  pages={4731--4739},
-  year={2024}
-}
-
-@article{shao2023mcanet,
-  title={MCANet: Medical Image Segmentation with Multi-Scale Cross-Axis Attention},
-  author={Shao, Hao and Zeng, Quansheng and Hou, Qibin and Yang, Jufeng},
-  journal={arXiv preprint arXiv:2312.08866},
-  year={2023}
+@inproceedings{gao2026eedt,
+  title={Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation},
+  author={},
+  booktitle={},
+  volume={},
+  number={},
+  pages={},
+  year={2026}
 }
 ```
-
-
-
 
 ### License
 
@@ -170,14 +219,10 @@ Code in this repo is for non-commercial use only.
   <img src="https://github.com/daidaibunny.png" width="80" alt="Yiwei Li">
 </a>
 
-<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/HengyuanShi.md">
-  <img src="https://github.com/name.png" width="80" alt="Hengyuan Shi">
+<a href="contributors/HengyuanShi.md">
+  <img src="contributors/HengyuanShi.jpg" width="80" alt="Hengyuan Shi">
 </a>
 
-<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/Name.md">
-  <img src="https://github.com/name.png" width="80" alt="Name">
-</a>
-
-<a href="https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/contributors/Fiseha.md">
+<a href="https://github.com/Falmi">
   <img src="https://github.com/Falmi.png" width="80" alt="Fiseha Berhanu Tesema">
 </a>
