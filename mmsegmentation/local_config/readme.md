@@ -51,7 +51,7 @@ Additional small-polyp experiments and ablation studies further validate the eff
 
 ### Dataset
 
-- 1.Download the dataset mentioned in the initial [README.md](https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/README.md#dataset), then decompress the dataset.
+- 1.Download the dataset mentioned in the initial [README.md/1. Dataset](https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/README.md#dataset), then decompress the dataset.
 - 2.Update the training path and test path of **/medical_seg/mmsegmentation/local_config/_base_/datasets/polypseg.py** in the project, on lines 55, 56, 67, and 68 respectively.
 > We recommend using absolute paths instead of relative paths when updating paths of dataset.
 - 3.Create a folder in the root directory
