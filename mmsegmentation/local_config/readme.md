@@ -7,8 +7,7 @@ This document mainly contains [Edge-Enhanced Dual-Stream Transformer for Small P
 
 ## **Abstract**
 
-We present EEDT, an edge-enhanced dual-stream Transformer framework for small polyp segmentation. 
-Small polyps in colonoscopy images often suffer from low contrast, blurred boundaries, and complex backgrounds, making accurate segmentation difficult when relying only on semantic features. 
+Accurate segmentation of small colorectal polyps remains challenging because of their weak contrast, ambiguous boundaries, and complex colonoscopic backgrounds. To address these challenges, we propose EEDT, an edge-enhanced dual-stream Transformer framework for small polyp segmentation. Small polyps in colonoscopy images often suffer from low contrast, blurred boundaries, and complex backgrounds, making accurate segmentation difficult when relying only on semantic features. 
 To address this issue, EEDT introduces an auxiliary edge-enhancement stream to explicitly strengthen boundary cues while preserving the semantic representation learned by the main feature stream. Specifically, a Swin Transformer encoder extracts multi-level features, which are then processed by a semantic feature stream and an edge-enhancement stream. 
 A cross-attention fusion module is further designed to integrate semantic features with boundary-aware information for more accurate polyp delineation.
 Experiments on five public polyp segmentation datasets demonstrate that EEDT achieves competitive performance compared with representative CNN-based, Transformer-based, and refinement-based methods. 
