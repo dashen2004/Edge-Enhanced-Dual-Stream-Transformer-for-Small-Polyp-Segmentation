@@ -1,4 +1,4 @@
-# <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentatio`</p>
+# <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation`</p>
 
 <p align="center">
 📃 <b>Contents:</b>
