@@ -70,8 +70,62 @@ python -c "import torch; print(torch.__version__); print(torch.version.cuda); pr
 ```
 
 **1. Dataset**
-> The dataset used in the experiment can be obtained in the following methods:
-- [Polypseg](https://github.com/DengPingFan/PraNet): including Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene and ETIS datasets.
+The datasets used in this project can be downloaded from the following Google Drive links.
+
+- Download the training dataset from this [Google Drive Link](https://drive.google.com/file/d/1UxXVTlI6PjUldAVTvDN2QLVX31dKaxVh/view?usp=drive_link).  
+  The training dataset contains `image/` and `mask/` folders for model training.
+
+- Download the testing dataset from this [Google Drive Link](https://drive.google.com/file/d/1ISqQgZBLtMY8TA2lcKCexJCAKLbcsEqw/view?usp=drive_link).  
+  It contains five sub-datasets: Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS. Each sub-dataset contains `images/` and `mask/` folders.
+
+- Download the small-polyp testing dataset from this [Google Drive Link](https://drive.google.com/file/d/1vnG5ykOCtF_NMhhSmAUg_dZTYMOcL1bn/view?usp=drive_link).  
+  This dataset is used to evaluate the performance of different methods on small-polyp segmentation. Each sub-dataset also contains `images/` and `mask/` folders.
+
+After downloading and extracting the datasets, the data directory should be organized as follows:
+
+```text
+data/
+├── TrainDataset/
+│   ├── image/
+│   └── mask/
+└── TestDataset/
+    ├── TestDataset/
+    │   ├── Kvasir/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   ├── CVC-ClinicDB/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   ├── CVC-ColonDB/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   ├── EndoScene/
+    │   │   ├── images/
+    │   │   └── mask/
+    │   └── ETIS/
+    │       ├── images/
+    │       └── mask/
+    └── SmallPolypDataset/
+        ├── Kvasir/
+        │   ├── images/
+        │   └── mask/
+        ├── CVC-ClinicDB/
+        │   ├── images/
+        │   └── mask/
+        ├── CVC-ColonDB/
+        │   ├── images/
+        │   └── mask/
+        ├── EndoScene/
+        │   ├── images/
+        │   └── mask/
+        └── ETIS/
+            ├── images/
+            └── mask/
+```
+
+Alternatively, the original training and testing datasets can also be obtained from the following repository:
+
+- [PraNet / PolypSeg](https://github.com/DengPingFan/PraNet): including Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS datasets.
 
 **2. Experiments**
 
