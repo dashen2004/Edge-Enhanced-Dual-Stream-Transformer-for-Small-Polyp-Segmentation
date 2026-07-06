@@ -1,15 +1,18 @@
 # <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation`</p>
 
 > **Authors:**
-> [Youyao Gao](), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), [Name](), &[Fiseha Berhanu Tesema]().
+> [Youyao Gao](https://scholar.google.com/citations?user=nRJ5_7oAAAAJ), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), and [Fiseha Berhanu Tesema](https://scholar.google.com/citations?hl=en&user=XoL3ZMAAAAAJ)
 
-
-This document mainly contains [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation](https://arxiv.org/abs/2312.08735)'s training, testing and other experimental methods, experimental results and visualization results, etc.
+This document mainly contains [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]()'s training, testing and other experimental methods, experimental results and visualization results, etc.
 
 ## **Abstract**
 
-This paper presents an edge-enhanced dual-stream Transformer framework for small polyp segmentation, named EEDT. The proposed method is motivated by a key challenge in small polyp segmentation: in colonoscopy images, small polyps often suffer from low contrast, blurred boundaries, irregular shapes, and complex background interference. Therefore, relying only on conventional semantic features may not be sufficient to produce accurate boundary predictions. To address this problem, EEDT explicitly introduces edge-enhanced information to improve the model's discrimination capability around polyp boundaries while maintaining relatively low computational cost. Specifically, a Swin Transformer is first adopted as the encoder to extract multi-level semantic features. Then, an edge-enhancement stream is designed to capture boundary-related responses from feature maps through channel averaging, Laplacian convolution, and feature projection. After that, a cross-attention fusion module is introduced to promote effective interaction between semantic features and edge-enhanced features. In this way, the model can preserve the main regional semantic information while enhancing its ability to model fine-grained boundary structures. To evaluate the effectiveness of the proposed method, experiments are conducted on five public polyp segmentation datasets, including Kvasir-SEG, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS-LaribPolypDB. The experimental results show that EEDT achieves competitive segmentation performance across multiple datasets. Further ablation studies also demonstrate that both the edge-enhancement stream and the cross-attention module improve model performance, and their combination achieves the best results.
-
+We present EEDT, an edge-enhanced dual-stream Transformer framework for small polyp segmentation. 
+Small polyps in colonoscopy images often suffer from low contrast, blurred boundaries, and complex backgrounds, making accurate segmentation difficult when relying only on semantic features. 
+To address this issue, EEDT introduces an auxiliary edge-enhancement stream to explicitly strengthen boundary cues while preserving the semantic representation learned by the main feature stream. Specifically, a Swin Transformer encoder extracts multi-level features, which are then processed by a semantic feature stream and an edge-enhancement stream. 
+A cross-attention fusion module is further designed to integrate semantic features with boundary-aware information for more accurate polyp delineation.
+Experiments on five public polyp segmentation datasets demonstrate that EEDT achieves competitive performance compared with representative CNN-based, Transformer-based, and refinement-based methods. 
+Additional small-polyp experiments and ablation studies further validate the effectiveness of the proposed edge-enhancement stream and cross-attention fusion module.
 
 ## Architecture
 
@@ -47,7 +50,7 @@ This paper presents an edge-enhanced dual-stream Transformer framework for small
 
 ### Dataset
 
-- 1.Download the [Polypseg](https://github.com/DengPingFan/PraNet) dataset, then decompress the dataset.
+- 1.Download the dataset mentioned in the initial [README.md/1. Dataset](https://github.com/dashen2004/Edge-Enhanced-Dual-Stream-Transformer-for-Small-Polyp-Segmentation/blob/main/README.md#dataset), then decompress the dataset.
 - 2.Update the training path and test path of **/medical_seg/mmsegmentation/local_config/_base_/datasets/polypseg.py** in the project, on lines 55, 56, 67, and 68 respectively.
 > We recommend using absolute paths instead of relative paths when updating paths of dataset.
 - 3.Create a folder in the root directory
