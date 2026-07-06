@@ -31,7 +31,7 @@
 ## ✅ Get Start
 > Our experiments are based on ubuntu, and windows is not recommended.
 
-**0. Install**
+### 0. Install
 
 ```
 conda create --name medical_seg python=3.10 -y
@@ -70,7 +70,7 @@ python -c "import torch; print(torch.__version__); print(torch.version.cuda); pr
 ```
 
 <a id="dataset"></a>
-**1. Dataset**
+### 1. Dataset
 
 The datasets used in this project can be downloaded from the following Google Drive links.
 
@@ -129,7 +129,7 @@ Alternatively, the original training and testing datasets can also be obtained f
 
 - [PraNet / PolypSeg](https://github.com/DengPingFan/PraNet): including Kvasir, CVC-ClinicDB, CVC-ColonDB, EndoScene, and ETIS datasets.
 
-**2. Experiments**
+ ### 2. Experiments
 
 We recommend that you place the project folder in a location such as a solid state drive, and put the checkpoint files generated from the experiment on a mechanical hard drive to save space, so you can choose to create a soft connection. Specific practices are as follows:
 
