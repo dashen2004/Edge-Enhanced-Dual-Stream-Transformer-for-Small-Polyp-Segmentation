@@ -15,7 +15,7 @@
   <a href="https://github.com/daidaibunny">Yiwei Li</a>, 
   <a href="https://github.com/MattEEE-11">Hengyuan Shi</a>,  
   <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
-   <a href="https://github.com/Falmi">Tianxiang Cui</a>
+  <a href="">Tianxiang Cui</a>
 </p>
 
 :fire::fire: This is an official repository of our work on edge-enhanced dual-stream transformer for small polyp segmentation. :fire::fire:
