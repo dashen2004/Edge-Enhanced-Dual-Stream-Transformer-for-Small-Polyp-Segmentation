@@ -15,6 +15,7 @@
   <a href="https://github.com/daidaibunny">Yiwei Li</a>, 
   <a href="https://github.com/MattEEE-11">Hengyuan Shi</a>,  
   <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
+  <a href="">Tianxiang Cui</a>
 </p>
 
 :fire::fire: This is an official repository of our work on edge-enhanced dual-stream transformer for small polyp segmentation. :fire::fire:
@@ -148,7 +149,7 @@ If your hardware resources are relatively rich, ignore this advice.
 ### [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]() 2026
 
 > **Authors:**
-> [Youyao Gao](https://scholar.google.com/citations?user=nRJ5_7oAAAAJ), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), and [Fiseha Berhanu Tesema](https://scholar.google.com/citations?hl=en&user=XoL3ZMAAAAAJ).
+> [Youyao Gao](https://scholar.google.com/citations?user=nRJ5_7oAAAAJ), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), [Fiseha Berhanu Tesema](https://scholar.google.com/citations?hl=en&user=XoL3ZMAAAAAJ), and [Tianxiang Cui]().
 
 #### **Abstract**
 

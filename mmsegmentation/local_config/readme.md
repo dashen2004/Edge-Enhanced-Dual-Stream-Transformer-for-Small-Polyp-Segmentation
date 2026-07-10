@@ -1,7 +1,7 @@
 # <p align=center>`Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation`</p>
 
 > **Authors:**
-> [Youyao Gao](https://scholar.google.com/citations?user=nRJ5_7oAAAAJ), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), and [Fiseha Berhanu Tesema](https://scholar.google.com/citations?hl=en&user=XoL3ZMAAAAAJ)
+> [Youyao Gao](https://scholar.google.com/citations?user=nRJ5_7oAAAAJ), [Ziqian Xiong](), [Yiwei Li](), [Hengyuan Shi](), [Fiseha Berhanu Tesema](https://scholar.google.com/citations?hl=en&user=XoL3ZMAAAAAJ), and [Tianxiang Cui]()
 
 This document mainly contains [Edge-Enhanced Dual-Stream Transformer for Small Polyp Segmentation]()'s training, testing and other experimental methods, experimental results and visualization results, etc.
 
