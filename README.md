@@ -14,7 +14,7 @@
   <a href="https://github.com/qianqqqqqXZQ">Ziqian Xiong</a>, 
   <a href="https://github.com/daidaibunny">Yiwei Li</a>, 
   <a href="https://github.com/MattEEE-11">Hengyuan Shi</a>,  
-  <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>
+  <a href="https://github.com/Falmi">Fiseha Berhanu Tesema</a>,
   <a href="">Tianxiang Cui</a>
 </p>
 
